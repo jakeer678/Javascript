@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function searchingElement(nums, target) {
+        let left = 0;
+        let right = nums.length - 1;
+        while (left < right) {
+          let mid = Math.floor((left + right) / 2);
+          if (nums[mid] === target) {
+            return mid;
+          } else if (nums[mid] < target) {
+            left = mid + 1;
+          } else {
+            right = mid - 1;
+          }
+        }
+
+        return -1;
+      }
+
+      console.log(searchingElement([-1, 0, 3, 5, 9, 12], 0));
+
+      function searSortElement(arr) {
+        for (let i = 0; i < arr.length; i++) {
+          for (let j = 0; j < arr.length; j++) {
+            if (arr[j] > arr[j + 1]) {
+              let temp = arr[j];
+              arr[j] = arr[j + 1];
+              arr[j + 1] = temp;
+            }
+          }
+        }
+
+        return arr;
+      }
+
+      console.log(searSortElement([1, 4, 2, 3, 9]));
+
+      // Sum of Odd length Subarrays
+
+      function sumOfOddLength(arr) {
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+          for (let j = i; j < arr.length; j++) {
+            for (let k = i; k < arr[j]; k++) {
+              sum = sum + arr[k];
+            }
+          }
+        }
+        return sum;
+      }
+
+      console.log(sumOfOddLength([1, 2, 4, 3, 4]));
+
+      //Maximum in 2D array
+
+      // function maximumArray (arr) {
+      //   let sum =0;
+      //   for(let i=0; i<arr.length; i++) {
+      //     const sumSubArray = arr[i].reduce((acc, value) => acc + value)
+      //     if(sumSubArray>Sum) {
+      //       sum = sumSubArray
+      //     }
+      //   }
+      //   return sum
+      // }
+
+      // console.log(maximumArray([1,4,2,3]))
+
+      //Running sum
+
+      function ruuningSum(nums) {
+        for (let i = 1; i < nums.length; i++) {
+          nums[i] = nums[i] + nums[i - 1];
+        }
+        return nums;
+      }
+
+      console.log(ruuningSum([1, 2, 3, 4]));
+
+      const obj = {
+        name: "jakeer",
+        fun: function jakeer(a) {
+          console.log(`${a}, ${this.name}`);
+        },
+      };
+
+      const objj = {
+        name: "sasanoor",
+      };
+
+      obj.fun.call(objj, "hi");
+      obj.fun.apply(objj, ["hi"]);
+      const c = obj.fun.bind(objj, "whilettt");
+      c();
+
+      function increment(num) {
+        const a = num + 1;
+
+        console.log(a); // 6
+      }
+
+      let num1 = 5;
+
+      increment(num1);
+
+      console.log(num1); // 5
+
+      function decodeURI(arr, val) {
+        arr.push(val);
+      }
+
+      const arr = [1, 3, 5, 4];
+
+      decodeURI(arr, 9);
+
+      console.log(arr);
+
+      for (let i = 1; i <= 5; i++) {
+        let char = "";
+        for (let j = 1; j <= i; j++) {
+          char = char + "*";
+        }
+        console.log(char);
+      }
+
+      for (let i = 5; i >= 1; i--) {
+        let char = "";
+        for (let j = 1; j <= i; j++) {
+          char = char + "*";
+        }
+        console.log(char);
+      }
+
+      function pallindrome(s) {
+        const reverse = s.split("").reverse().join("");
+        if (reverse == s) {
+          console.log("Number is pallindrome");
+        } else {
+          console.log("Number is not pallindrome");
+        }
+      }
+      pallindrome("madam");
+
+      function countNum() {
+        let count = 0;
+        for (let i = 0; i < arr.length; i++) {
+          for (let j = 0; j < arr[i].length; j++) {
+            if (arr[i][j] == 5) {
+              count++;
+            }
+          }
+        }
+        return count;
+      }
+
+      const a = countNum([
+        [1, 2, 5],
+        [3, 5, 5],
+      ]);
+      console.log(a);
+
+      function sortFind(nums, target) {
+        let left = 0;
+        let right = nums.length - 1;
+        while (left <= right) {
+          let mid = Math.floor((left + right) / 2);
+          if (target === nums[mid]) {
+            return mid;
+          } else if (target < nums[mid]) {
+            return (left = mid + 1);
+          } else {
+            return (right = mid - 1);
+          }
+        }
+        return -1;
+      }
+
+      const z = sortFind([9, 5, 3, 2, 1], 5);
+
+      console.log(z);
+    </script>
+  </body>
+</html>
